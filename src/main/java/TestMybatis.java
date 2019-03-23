@@ -14,7 +14,9 @@ public class TestMybatis {
             Reader reader = Resources.getResourceAsReader("mybatis.xml");
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
             sqlSession = sqlSessionFactory.openSession();
-            String statement = "com.wjsay.main.StudentMapper.queryStudentBySno";
+            //StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+            //Student student = studentMapper.queryStudentBySno("20171508");
+            String statement = "StudentMapper.queryStudentBySno";
             Student student = sqlSession.selectOne(statement, "20171508");
             System.out.println(student.toString());
         } catch (IOException e) {
